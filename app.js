@@ -3,7 +3,7 @@
 // List from https://github.com/sansumbrella/Processing-ObliqueStrategies/blob/master/src/com/sansumbrella/StrategyList.java
 const strategies = [ 
   //From David
-  { strategy: "Turn it over." },
+  { strategy: "Turn it over.", hint: "turn" },
   { strategy: "Switch the axes." },
   { strategy: "Think about color." },
   { strategy: "Make it black and white." },
@@ -122,7 +122,7 @@ const strategies = [
 ];
 
 function randomStrategy() {
-  return strategies[Math.floor(Math.random() * strategies.length)]; 
+  return strategies[Math.floor(Math.random() * strategies.length)].strategy; 
 }
 
 console.log(randomStrategy());
@@ -137,7 +137,8 @@ class LikeButton extends React.Component {
 
   render() {
     if (this.state.liked) {
-      return 'You liked this.';
+      // return 'You liked this.';
+      return randomStrategy();
     }
 
     return e(
@@ -147,6 +148,26 @@ class LikeButton extends React.Component {
     );
   }
 }
+
+// class LikeButton extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = { liked: false };
+//   }
+
+//   render() {
+//     if (this.state.liked) {
+//       return 'You liked this.';
+//     }
+
+//     return e(
+//       'button',
+//       { onClick: () => this.setState({ liked: true }) },
+//       'Like'
+//     );
+//   }
+// }
+
 
 const domContainer = document.querySelector('#like_button_container');
 ReactDOM.render(e(LikeButton), domContainer);

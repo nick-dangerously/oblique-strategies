@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
     <title>Oblique Strategies in React</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
   </head>
   <body>
 
-    <div class="flex bg-blue h-screen w-screen">
-      <div class="mx-auto my-auto h-3 w-5 bg-blue-lightest">
-        <!-- We will put our React component inside this div. -->
-        <div id="like_button_container"></div>
+    <div class="flex h-screen w-screen">
+      <div class="container mx-auto my-auto max-w-lg lg:h-64 bg-blue-light shadow rounded-lg flex relative">
+        <!-- <img src="http://giphy.com/embed/YsTs5ltWtEhnq" alt="Gif for card" class="w-full rounded-t"> -->
+        <iframe src="https://giphy.com/embed/JIX9t2j0ZTN9S" frameBorder="0" class="giphy-embed overflow-hidden mx-auto w-full" allowFullScreen></iframe>
+        <div class="absolute pin-x pin-b bg-blue text-center text-white">Placeholder lorem ipsum</div>
       </div>
     </div>
+
+    <div class="bg-teal" id="like_button_container"></div>
+
     <!-- Load React. -->
     <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
     <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Oblique Strategies in React</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
+  </head>
+  <body>
+
+    <div class="flex bg-blue h-screen w-screen">
+      <div class="mx-auto my-auto h-3 w-5 bg-blue-lightest">
+        <!-- We will put our React component inside this div. -->
+        <div id="like_button_container"></div>
+      </div>
+    </div>
+    <!-- Load React. -->
+    <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+
+    <!-- Load our React component. -->
+    <script src="app.js"></script>
+
+  </body>
+</html>

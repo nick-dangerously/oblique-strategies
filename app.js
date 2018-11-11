@@ -121,13 +121,36 @@ const strategies = [
   { strategy: "Forget the money, make it cool." }
 ];
 
-console.log('can you see ' + CONFIG.key)
-
 function randomStrategy() {
   return strategies[Math.floor(Math.random() * strategies.length)].strategy; 
 }
 
-console.log(randomStrategy());
+// function getGif(gifTag) {
+//   return new Promise(function(resolve, reject) {
+//     let req = new XMLHttpRequest();
+//     let url = "https://api.giphy.com/v1/gifs/random?tag=" + gifTag + "&api_key=" + CONFIG.key;
+//     req.open('GET', url);
+//     req.onload = function() {
+//       if (req.status == 200) {
+//         resolve(req.response);
+//       } else {
+//         reject(Error(req.statusText));
+//       };
+//     };
+//     req.onerror = function() {
+//       reject(Error('Network Error'));
+//     };
+//   })
+// }
+
+
+function getGif(gifTag) {
+  let url = "https://api.giphy.com/v1/gifs/random?tag=" + gifTag + "&api_key=" + CONFIG.key;
+  fetch(url);
+}
+
+
+getGif('cat').then(console.log('Success')).catch(console.log(Error));
 
 const e = React.createElement;
 

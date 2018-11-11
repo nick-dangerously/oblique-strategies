@@ -121,6 +121,8 @@ const strategies = [
   { strategy: "Forget the money, make it cool." }
 ];
 
+console.log('can you see ' + CONFIG.key)
+
 function randomStrategy() {
   return strategies[Math.floor(Math.random() * strategies.length)].strategy; 
 }

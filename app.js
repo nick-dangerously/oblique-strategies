@@ -1,46 +1,12 @@
 'use strict';
 
 const strategies = [ 
-  //From David
-  { strategy: "Turn it over.", hint: "turn" },
-  { strategy: "Switch the axes.", hint: "axes" },
-  { strategy: "Think about color.", hint: "color" },
-  { strategy: "Make it black and white.", hint: "monochrome" },
-  { strategy: "Use the tangents.", hint: "tangent" },
-  { strategy: "Move across the room.", hint: "room" },
-  { strategy: "Restart.", hint: "restart" },
-  { strategy: "Make it ridiculous.", hint: "ridiculous" },
-  { strategy: "Stop making sense.", hint: "sense" },
-  { strategy: "Emphasize the side effects.", hint: "effects" },
-  { strategy: "Turn it into a game.", hint: "game" },
-  { strategy: "More semicolons.", hint: "semicolon" },
-  { strategy: "A => AB, B => B.", hint: "logic" },
-  { strategy: "Apply the Sieve of Eratosthenes.", hint: "math" },
-  { strategy: "0,1,1 => 0,0,0.", hint: "simplify" },
-  { strategy: "1,0,1 => 0,1,0.", hint: "arrange" },
-  //with Chandler
-  { strategy: "Maybe you should use %", hint: "mod" },
-  { strategy: "Block, Beehive, Loaf, Boat.", hint: "boat" },
-  { strategy: "Blinker, Toad, Beacon, Pulsar.", hint: "bacon" },
-  { strategy: "Glider, LWSS.", hint: "glider" },
-  { strategy: "The R pentomino.", hint: "automata" },
-  { strategy: "Make the model the view.", hint: "view" },
-  { strategy: "Change your controller.", hint: "controller" },
-  //From origina l
   { strategy: "Try faking it.", hint: "fake" },
   { strategy: "State the problem in words as clearly as possible.", hint: "words" },
   { strategy: "Only one element of each kind.", hint: "element" },
   { strategy: "What would your closest friend do?", hint: "friend" },
   { strategy: "What to increase? What to reduce?", hint: "increase" },
   { strategy: "Are there sections? Consider transitions.", hint: "transition" },
-  //from Casey
-  { strategy: "Don't think. Do.", hint: "nike" },
-  { strategy: "But, does it float?", hint: "float" },
-  { strategy: "Remove half.", hint: "half" },
-  { strategy: "0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597...", hint: "fibonacci" },
-  { strategy: "3.1415926535897932384626433832795028...", hint: "pi" },
-  { strategy: "Double the main element.", hint: "double" },
-  //from original deck (Brian Eno)
   { strategy: "Abandon normal instruments.", hint: "strange" },
   { strategy: "Accept advice.", hint: "advice" },
   { strategy: "Accretion.", hint: "accretion" },
@@ -83,7 +49,7 @@ const strategies = [
   { strategy: "Is it finished?", hint: "finish" },
   { strategy: "Is there something missing?", hint: "missing" },
   { strategy: "Just carry on.", hint: "carry" },
-  { strategy: "Left channel, right channel, centre channel.", hint: "channel" },
+  { strategy: "Left channel, right channel,/ centre channel.", hint: "channel" },
   { strategy: "Look at a very small object, look at its centre.", hint: "tiny" },
   { strategy: "Look at the order in which you do things.", hint: "order" },
   { strategy: "Look closely at the most embarrassing details and amplify them.", hint: "embarass" },
@@ -111,20 +77,13 @@ const strategies = [
   { strategy: "What mistakes did you make last time?", hint: "mistake" },
   { strategy: "What wouldn't you do?", hint: "gross" },
   { strategy: "Work at a different speed.", hint: "fall" },
-  // From Pete
-  { strategy: "Take a walk.", hint: "walk" }, 
-  { strategy: "Take a shower.", hint: "shower" },
-  { strategy: "Look to Nature.", hint: "nature" }, 
-  { strategy: "Talk it through with a friend.", hint: "talk" },
-  { strategy: "Who's my audience.", hint: "audience" },
-  { strategy: "Forget the money, make it cool.", hint: "cool" }
 ];
 
 function randomStrategy() {
   return strategies[Math.floor(Math.random() * strategies.length)]; 
 }
 
-function getGifUrl(gifTag) {
+function getGif(gifTag) {
   let url = "https://api.giphy.com/v1/gifs/random?tag=" + gifTag + "&rating=g" + "&api_key=" + CONFIG.key;
   fetch(url).then(function(responseObj){
     console.log('status: ', responseObj.status);
@@ -133,18 +92,66 @@ function getGifUrl(gifTag) {
     console.log(jsonObj.data.embed_url);    
     // Upate URl here
     document.getElementById("gif").src = jsonObj.data.embed_url;
+  }).catch(function() {
+    document.getElementById("cardTitle").innerHTML = "Gif overload! Please wait and try again."
+    document.getElementById("gif").src = "https://giphy.com/embed/JIX9t2j0ZTN9S"
   });
 }
 
-let card = randomStrategy();
-let cardTitle = card.strategy;
-document.getElementById("cardTitle").innerHTML = cardTitle;
-// Get a gif "related" to the strtegy
-getGifUrl(card.hint);
+function makeCard() {
+  let card = randomStrategy();
+  let cardTitle = card.strategy;
+  document.getElementById("cardTitle").innerHTML = cardTitle;
+  // Get a gif "related" to the strtegy
+  getGif(card.hint);
+}
 
-
+makeCard();
 
 const e = React.createElement;
+
+// Header
+// ReactDOM.render(
+//   React.createElement(
+//     "div",
+//     { className: "container mx-auto lg:w-3/5 bg-blue-lightest rounded p-6 mb-2" },
+//     React.createElement(
+//       "nav",
+//       { className: "flex justify-between flex-wrap text-blue-light" },
+//       React.createElement("div", null, "Nicholas Chin")
+//     )
+//   ), document.getElementById('root')
+// );
+
+// Card container
+// let cardContainer = React.createElement("div", {
+//   id: "cardContainer",
+//   className: "flex mx-auto lg:w-3/5"
+//   })
+
+// let header = React.createElement(
+//   "div",
+//   { className: "container mx-auto lg:w-3/5 bg-blue-lightest rounded p-6 mb-2" },
+//   React.createElement(
+//     "nav",
+//     { className: "flex justify-between flex-wrap text-blue-light" },
+//     React.createElement("div", null, "Nicholas Chin")
+//   )
+// );
+
+// code sketch to get unmodified blob
+console.log('begin testing')
+let gifTag = 'cat';
+let url = "https://api.giphy.com/v1/gifs/random?tag=" + gifTag + "&rating=g" + "&api_key=" + CONFIG.key;
+let request = new Request(url, {
+  headers: new Headers({
+    'accept': 'image/*'
+  })
+});
+fetch(request).then(function(response) {
+  console.log(response);
+});
+
 
 class LikeButton extends React.Component {
   constructor(props) {
@@ -153,17 +160,14 @@ class LikeButton extends React.Component {
   }
 
   render() {
-    if (this.state.liked) {
-      // return 'You liked this.';
-      return randomStrategy();
-    }
 
     return e(
       'button',
-      { onClick: () => this.setState({ liked: true }) },
-      'Like'
+      { onClick: () => makeCard() },
+      'New Card'
     );
   }
+
 }
 
 // class LikeButton extends React.Component {

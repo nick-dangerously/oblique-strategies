@@ -8,24 +8,40 @@
   </head>
   <body>
 
-    <div class="flex h-screen w-screen">
-      <div class="container mx-auto my-auto max-w-lg lg:h-64 bg-blue-light shadow rounded-lg flex relative">
-        <!-- <img src="https://giphy.com/embed/cPxRDvlSj9QKA" alt="Gif for card" class="w-full rounded-t"> -->
-        <iframe id="gif" src="https://giphy.com/embed/JIX9t2j0ZTN9S" frameBorder="0" class="giphy-embed overflow-hidden mx-auto w-full" allowFullScreen></iframe>
-        <div id="gif"></div>
-        <div id="cardTitle" class="absolute pin-x pin-b bg-blue text-center text-white">Placeholder lorem ipsum</div>
-      </div>
+    <div class="container mx-auto lg:w-3/5 bg-blue-lightest rounded p-6 mb-2">
+      <nav class="flex justify-between flex-wrap text-blue-light">
+        <div>Nicholas Chin</div>
+      </nav>
     </div>
 
-    <div class="bg-teal" id="like_button_container"></div>
+    <div class="flex mx-auto lg:w-3/5">
+    
+      <div class="lg:w-1/3 p-6">
+          <iframe id="gif" src="" frameBorder="0" class="giphy-embed overflow-hidden mx-auto w-full" allowFullScreen></iframe>
+      </div>
 
-    <!-- Load React. -->
-    <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
-    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
-    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+      <div class="px-6 py-4">
+          <div id="cardTitle" class="font-bold mb-2">About</div>
+      </div>
 
-    <!-- Load our React component. -->
-    <script src="app.js"></script>
+    <!-- <div class="flex h-screen w-screen">
+      <div class="container mx-auto my-auto max-w-lg lg:h-64 bg-blue-light shadow rounded-lg flex relative">
+        <iframe id="gif" src="" frameBorder="0" class="giphy-embed overflow-hidden mx-auto w-full" allowFullScreen></iframe>
+        <div id="cardTitle" class="absolute pin-x pin-b bg-blue text-center text-white">Placeholder lorem ipsum</div>
+      </div>
+    </div> -->
+
+  </div>
+    
+  <div class="bg-teal" id="like_button_container"></div>
+
+  <!-- Load React. -->
+  <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+  <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+
+  <!-- Load our React component. -->
+  <script src="app.js"></script>
 
   </body>
 </html>

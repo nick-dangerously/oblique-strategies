@@ -79,6 +79,12 @@ const strategies = [
   { strategy: "Work at a different speed.", hint: "fall" },
 ];
 
+// TODO: Add line breaks to long text
+// Get a secondary API key for gif overloads?
+// Fall back to a scraped gif from reddit?
+// Or just import a giant array of precreated gif url's?
+// Call it Dadaist mode?
+
 function randomStrategy() {
   return strategies[Math.floor(Math.random() * strategies.length)]; 
 }
@@ -138,19 +144,6 @@ const e = React.createElement;
 //     React.createElement("div", null, "Nicholas Chin")
 //   )
 // );
-
-// code sketch to get unmodified blob
-console.log('begin testing')
-let gifTag = 'cat';
-let url = "https://api.giphy.com/v1/gifs/random?tag=" + gifTag + "&rating=g" + "&api_key=" + CONFIG.key;
-let request = new Request(url, {
-  headers: new Headers({
-    'accept': 'image/*'
-  })
-});
-fetch(request).then(function(response) {
-  console.log(response);
-});
 
 
 class LikeButton extends React.Component {

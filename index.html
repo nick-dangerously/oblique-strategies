@@ -4,25 +4,24 @@
     <meta charset="UTF-8">
     <title>Oblique Strategies in React</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
     <script type='text/javascript' src='config.js'></script>
   </head>
   <body>
 
-    <div class="container mx-auto lg:w-3/5 bg-blue-lightest rounded p-6 mb-2">
-      <nav class="flex justify-between flex-wrap text-blue-light">
+    <div class="container mx-auto lg:w-3/5 h-screen">
+      <nav class="flex justify-between flex-wrap text-blue-light p-6 mt-0 m-2 bg-blue-lightest rounded">
         <div>Nicholas Chin</div>
       </nav>
-    </div>
-
-    <div class="flex mx-auto lg:w-3/5">
     
-      <div class="lg:w-1/3 p-6">
-          <iframe id="gif" src="" frameBorder="0" class="giphy-embed overflow-hidden mx-auto w-full" allowFullScreen></iframe>
+      <div class="w-full p-6 relative h-full">
+          <iframe id="gif" src="" frameBorder="0" class="giphy-embed overflow-hidden mx-auto w-full h-full" allowFullScreen></iframe>
+          <div id="cardTitle" class="font-bold absolute text-center pin-x text-4xl"></div>
       </div>
 
-      <div class="px-6 py-4">
+      <!-- <div class="px-6 py-4">
           <div id="cardTitle" class="font-bold mb-2">About</div>
-      </div>
+      </div> -->
 
     <!-- <div class="flex h-screen w-screen">
       <div class="container mx-auto my-auto max-w-lg lg:h-64 bg-blue-light shadow rounded-lg flex relative">
@@ -33,7 +32,6 @@
 
   </div>
     
-  <div class="bg-teal" id="like_button_container"></div>
 
   <!-- Load React. -->
   <!-- Note: when deploying, replace "development.js" with "production.min.js". -->

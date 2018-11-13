@@ -2,7 +2,7 @@
 
 const strategies = [ 
   { strategy: "Try faking it.", hint: "fake" },
-  { strategy: "State the problem in words as clearly as possible.", hint: "words" },
+  { strategy: "State the problem in words<br>as clearly as possible.", hint: "words" },
   { strategy: "Only one element of each kind.", hint: "element" },
   { strategy: "What would your closest friend do?", hint: "friend" },
   { strategy: "What to increase? What to reduce?", hint: "increase" },
@@ -11,7 +11,7 @@ const strategies = [
   { strategy: "Accept advice.", hint: "advice" },
   { strategy: "Accretion.", hint: "accretion" },
   { strategy: "A line has two sides.", hint: "line" },
-  { strategy: "Balance the consistency principle with the inconsistency principle.", hint: "balance" },
+  { strategy: "Balance the consistency principle<br>with the inconsistency principle.", hint: "balance" },
   { strategy: "Be dirty.", hint: "dirty" },
   { strategy: "Breathe more deeply.", hint: "breathe" },
   { strategy: "Bridges -build -burn.", hint: "bridges" },
@@ -25,9 +25,9 @@ const strategies = [
   { strategy: "Destroy the most important thing.", hint: "destroy" },
   { strategy: "Discard an axiom.", hint: "discard" },
   { strategy: "Disconnect from desire.", hint: "disconnect" },
-  { strategy: "Discover the recipes you are using and abandon them.", hint: "recipe" },
+  { strategy: "Discover the recipes you are using<br>and abandon them.", hint: "recipe" },
   { strategy: "Distorting time.", hint: "time" },
-  { strategy: "Don't be afraid of things because they're easy to do.", hint: "easy" },
+  { strategy: "Don't be afraid of things<br>because they're easy to do.", hint: "easy" },
   { strategy: "Don't be frightened of cliches.", hint: "cliche" },
   { strategy: "Don't be frightened to display your talents.", hint: "talent" },
   { strategy: "Don't stress one thing more than another.", hint: "stres" },
@@ -49,12 +49,12 @@ const strategies = [
   { strategy: "Is it finished?", hint: "finish" },
   { strategy: "Is there something missing?", hint: "missing" },
   { strategy: "Just carry on.", hint: "carry" },
-  { strategy: "Left channel, right channel,/ centre channel.", hint: "channel" },
+  { strategy: "Left channel, right channel, centre channel.", hint: "channel" },
   { strategy: "Look at a very small object, look at its centre.", hint: "tiny" },
   { strategy: "Look at the order in which you do things.", hint: "order" },
-  { strategy: "Look closely at the most embarrassing details and amplify them.", hint: "embarass" },
-  { strategy: "Make a blank valuable by putting it in an exquisite frame.", hint: "frame" },
-  { strategy: "Make an exhaustive list of everything you might do and do the last thing on the list.", hint: "last" },
+  { strategy: "Look closely at the most embarrassing details<br>and amplify them.", hint: "embarass" },
+  { strategy: "Make a blank valuable by putting it<br>in an exquisite frame.", hint: "frame" },
+  { strategy: "Make an exhaustive list of everything you<br>might do and do the last thing on the list.", hint: "last" },
   { strategy: "Make a sudden, destructive unpredictable action; incorporate.", hint: "destroy" },
   { strategy: "Only one element of each kind.", hint: "unique" },
   { strategy: "Remember those quiet evenings.", hint: "quiet" },
@@ -65,14 +65,14 @@ const strategies = [
   { strategy: "Simple subtraction.", hint: "subtract" },
   { strategy: "Spectrum analysis.", hint: "spectrum" },
   { strategy: "Take a break.", hint: "break" },
-  { strategy: "Take away the elements in order of apparent non-importance.", hint: "trivia" },
+  { strategy: "Take away the elements in order<br>of apparent non-importance.", hint: "trivia" },
   { strategy: "Tidy up.", hint: "clean" },
   { strategy: "Turn it upside down.", hint: "flip" },
   { strategy: "Twist the spine.", hint: "twist" },
   { strategy: "Use an old idea.", hint: "old" },
   { strategy: "Use an unacceptable color.", hint: "garish" },
   { strategy: "Water.", hint: "water" },
-  { strategy: "What are you really thinking about just now? Incorporate.", hint: "think" },
+  { strategy: "What are you really thinking about just now?<br>Incorporate.", hint: "think" },
   { strategy: "What is the reality of the situation?", hint: "reality" },
   { strategy: "What mistakes did you make last time?", hint: "mistake" },
   { strategy: "What wouldn't you do?", hint: "gross" },
@@ -95,14 +95,15 @@ function getGif(gifTag) {
     console.log('status: ', responseObj.status);
     return responseObj.json();
   }).then(function(jsonObj) {
-    console.log(jsonObj.data.embed_url);    
-    // Upate URl here
-    document.getElementById("gif").src = jsonObj.data.embed_url;
+    console.log(jsonObj.data.images.original.url);    
+    // Update URL here
+    document.getElementById("gif").src = jsonObj.data.images.original.url;
   }).catch(function() {
     document.getElementById("cardTitle").innerHTML = "Gif overload! Please wait and try again."
     document.getElementById("gif").src = "https://giphy.com/embed/JIX9t2j0ZTN9S"
   });
 }
+
 
 function makeCard() {
   let card = randomStrategy();

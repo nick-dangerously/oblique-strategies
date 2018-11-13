@@ -100,9 +100,14 @@ function getGif(gifTag) {
     document.getElementById("gif").src = jsonObj.data.images.original.url;
   }).catch(function() {
     document.getElementById("cardTitle").innerHTML = "Gif overload! Please wait and try again."
-    document.getElementById("gif").src = "https://giphy.com/embed/JIX9t2j0ZTN9S"
+    document.getElementById("gif").src = "https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif"
   });
 }
+
+let test = "https://api.giphy.com/v1/gifs/JIX9t2j0ZTN9S? &api_key=r636CVKg89ErfN0MEJEfGVsBIbAMu9Cq" 
+fetch(test).then(function(response){ 
+  console.log(response)
+});
 
 
 function makeCard() {

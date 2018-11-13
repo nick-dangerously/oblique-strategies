@@ -3,19 +3,24 @@
   <head>
     <meta charset="UTF-8">
     <title>Oblique Strategies in React</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
     <link href="styles.css" rel="stylesheet">
     <script type='text/javascript' src='config.js'></script>
   </head>
-  <body>
+  <body class="bg-black">
 
-    <div class="container mx-auto lg:w-3/5 h-screen">
-      <nav class="pin-x pin-t flex justify-between flex-wrap text-blue-light p-6 mt-0 m-2 bg-blue-lightest rounded">
-        <div>Nicholas Chin</div>
+    <div class="container mx-auto lg:w-3/5">
+      <nav class="inline-flex justify-between pin-r pin-t text-blue-light w-full">
+        <div class="flex bg-blue-lightest rounded p-2 m-2">Nicholas Chin</div>
+        <div class="flex">
+          <div class=" bg-blue-lightest rounded p-2 m-2">Dadaist-Mode</div>
+          <div class=" bg-blue-lightest rounded p-2 m-2">Reload</div>
+      </div>
       </nav>
     
-      <div class="w-full p-6 relative">
-          <img id="gif" src="" frameBorder="0" class="giphy-embed overflow-hidden mx-auto w-full" allowFullScreen></iframe>
+      <div class="w-full rounded relative">
+          <img id="gif" src="" frameBorder="0" class="mx-auto w-full rounded" allowFullScreen></iframe>
           <div id="cardTitle" class="font-bold absolute text-center pin-x text-4xl"></div>
       </div>
 

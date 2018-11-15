@@ -90,7 +90,16 @@ function randomStrategy() {
 }
 
 function getGif(gifTag) {
-  let url = "https://api.giphy.com/v1/gifs/random?tag=" + gifTag + "&rating=g" + "&api_key=" + CONFIG.key;
+  
+  let url = ''
+  if (document.getElementById('dadaist').classList.contains('true')) {
+    // If dadaist mode is enabled - no limits! Random gif and pg rating!
+    url = "https://api.giphy.com/v1/gifs/random?" + "&rating=pg" + "&api_key=" + CONFIG.key  
+    console.log(url);
+  } else {
+    url = "https://api.giphy.com/v1/gifs/random?tag=" + gifTag + "&rating=g" + "&api_key=" + CONFIG.key;  
+    console.log(url);
+  }
   fetch(url).then(function(responseObj){
     console.log('status: ', responseObj.status);
     return responseObj.json();
@@ -109,7 +118,6 @@ fetch(test).then(function(response){
   console.log(response)
 });
 
-
 function makeCard() {
   let card = randomStrategy();
   let cardTitle = card.strategy;
@@ -118,39 +126,17 @@ function makeCard() {
   getGif(card.hint);
 }
 
+document.getElementById('dadaist').addEventListener('click', function(event) {
+  event.target.classList.toggle('true');
+});
+
+document.getElementById('reload').addEventListener('click', function(event){
+  makeCard();
+});
+
 makeCard();
 
 const e = React.createElement;
-
-// Header
-// ReactDOM.render(
-//   React.createElement(
-//     "div",
-//     { className: "container mx-auto lg:w-3/5 bg-blue-lightest rounded p-6 mb-2" },
-//     React.createElement(
-//       "nav",
-//       { className: "flex justify-between flex-wrap text-blue-light" },
-//       React.createElement("div", null, "Nicholas Chin")
-//     )
-//   ), document.getElementById('root')
-// );
-
-// Card container
-// let cardContainer = React.createElement("div", {
-//   id: "cardContainer",
-//   className: "flex mx-auto lg:w-3/5"
-//   })
-
-// let header = React.createElement(
-//   "div",
-//   { className: "container mx-auto lg:w-3/5 bg-blue-lightest rounded p-6 mb-2" },
-//   React.createElement(
-//     "nav",
-//     { className: "flex justify-between flex-wrap text-blue-light" },
-//     React.createElement("div", null, "Nicholas Chin")
-//   )
-// );
-
 
 class LikeButton extends React.Component {
   constructor(props) {
@@ -187,7 +173,6 @@ class LikeButton extends React.Component {
 //     );
 //   }
 // }
-
 
 const domContainer = document.querySelector('#like_button_container');
 ReactDOM.render(e(LikeButton), domContainer);

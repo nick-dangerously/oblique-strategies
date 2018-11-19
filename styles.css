@@ -19,3 +19,24 @@
     background-color: #3490DC;
     color: #EFF8FF;
 }
+
+.spin {
+    background-color: #3490DC;
+    color: #EFF8FF;
+    animation: spin 0.75s linear 1;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotateZ(0);
+    }
+
+    100% {
+        transform: rotateZ(360deg);
+    }
+}
+
+a {
+    text-decoration: none;
+    
+}

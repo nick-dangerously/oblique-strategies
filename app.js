@@ -79,12 +79,6 @@ const strategies = [
   { strategy: "Work at a different speed.", hint: "fall" },
 ];
 
-// TODO: Add line breaks to long text
-// Get a secondary API key for gif overloads?
-// Fall back to a scraped gif from reddit?
-// Or just import a giant array of precreated gif url's?
-// Call it Dadaist mode?
-
 function randomStrategy() {
   return strategies[Math.floor(Math.random() * strategies.length)]; 
 }
@@ -95,16 +89,12 @@ function getGif(gifTag) {
   if (document.getElementById('dadaist').classList.contains('true')) {
     // If dadaist mode is enabled - no limits! Random gif and pg rating!
     url = "https://api.giphy.com/v1/gifs/random?" + "&rating=pg" + "&api_key=" + CONFIG.key  
-    console.log(url);
   } else {
     url = "https://api.giphy.com/v1/gifs/random?tag=" + gifTag + "&rating=g" + "&api_key=" + CONFIG.key;  
-    console.log(url);
   }
   fetch(url).then(function(responseObj){
-    console.log('status: ', responseObj.status);
     return responseObj.json();
   }).then(function(jsonObj) {
-    console.log(jsonObj.data.images.original.url);    
     // Update URL here
     document.getElementById("gif").src = jsonObj.data.images.original.url;
   }).catch(function() {
@@ -112,11 +102,6 @@ function getGif(gifTag) {
     document.getElementById("gif").src = "https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif"
   });
 }
-
-let test = "https://api.giphy.com/v1/gifs/JIX9t2j0ZTN9S? &api_key=r636CVKg89ErfN0MEJEfGVsBIbAMu9Cq" 
-fetch(test).then(function(response){ 
-  console.log(response)
-});
 
 function makeCard() {
   let card = randomStrategy();
@@ -127,52 +112,17 @@ function makeCard() {
 }
 
 document.getElementById('dadaist').addEventListener('click', function(event) {
-  event.target.classList.toggle('true');
+  this.classList.toggle('true');
+  this.classList.toggle('hover:bg-blue', 'hover:text-blue-lightest');
 });
 
 document.getElementById('reload').addEventListener('click', function(event){
+  this.classList.toggle('spin');
   makeCard();
+  setTimeout(() => {
+    this.classList.remove('spin');
+  }, 750);
 });
 
+
 makeCard();
-
-const e = React.createElement;
-
-class LikeButton extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { liked: false };
-  }
-
-  render() {
-
-    return e(
-      'button',
-      { onClick: () => makeCard() },
-      'New Card'
-    );
-  }
-
-}
-
-// class LikeButton extends React.Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = { liked: false };
-//   }
-
-//   render() {
-//     if (this.state.liked) {
-//       return 'You liked this.';
-//     }
-
-//     return e(
-//       'button',
-//       { onClick: () => this.setState({ liked: true }) },
-//       'Like'
-//     );
-//   }
-// }
-
-const domContainer = document.querySelector('#like_button_container');
-ReactDOM.render(e(LikeButton), domContainer);

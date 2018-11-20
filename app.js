@@ -113,8 +113,10 @@ function makeCard() {
 
 document.getElementById('dadaist').addEventListener('click', function(event) {
   this.classList.toggle('true');
-  this.classList.toggle('hover:bg-blue', 'hover:text-blue-lightest');
+  this.classList.toggle('hover:bg-blue');
+  this.classList.toggle('hover:text-blue-lightest');
 });
+
 
 document.getElementById('reload').addEventListener('click', function(event){
   this.classList.toggle('spin');

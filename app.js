@@ -1,5 +1,3 @@
-'use strict';
-
 const strategies = [ 
   { strategy: "Try faking it.", hint: "fake" },
   { strategy: "State the problem in words<br>as clearly as possible.", hint: "words" },

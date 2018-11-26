@@ -8,5 +8,6 @@ Something like the I Ching for artists.
 
 The original format is a deck of cards. This uses gifs. It uses the Giphy API to retrieve a (somewhat) related gif to each strategy. For additional inspiration, "Dadaist-Mode" can be enabled which returns a random gif (recommended for maximum inspiration). 
 
-## Try it
-[Here](http://oblique-strategies.thenickchin.com)
+## Try It Out
+[http://oblique-strategies.thenickchin.com](http://oblique-strategies.thenickchin.com)
+

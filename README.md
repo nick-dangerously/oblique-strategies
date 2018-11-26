@@ -6,7 +6,7 @@ Oblique Strategies are a set of ambiguous prompts created by Brian Eno and Peter
 
 Something like the I Ching for artists.
 
-The original format is a deck of cards. This uses gifs. It uses the Giphy API to retrieve a (somewhat) related gif to each strategy. For additional inspiration, "Dadaist-Mode" can be enabled which returns a random gif (recommended for maximum inspiration). 
+The original format is a deck of cards. This uses gifs. It uses the Giphy API to retrieve a (somewhat) related gif to each strategy. "Dadaist-Mode" can be enabled which returns a completely random gif (recommended for maximum inspiration). 
 
 ## Try It Out
 [http://oblique-strategies.thenickchin.com](http://oblique-strategies.thenickchin.com)

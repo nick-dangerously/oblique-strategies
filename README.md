@@ -1,4 +1,4 @@
-# Oblique Strategies
+# oblique-strategies
 
 ## About
 
